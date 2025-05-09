@@ -712,8 +712,10 @@
 
                 submitWithdrawal() {
                     if (!this.transactionPassword) {
-                        alert('请输入交易密码');
+                        this.formErrors.transactionPassword = 'Please enter transaction password';
                         return;
+                    } else {
+                        this.formErrors.transactionPassword = '';
                     }
                     // 这里添加提现提交逻辑
                     console.log('提交提现请求');
@@ -729,7 +731,7 @@
                                     <div class="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-wallet text-blue-600"></i>
                                     </div>
-                                    <h3 class="text-base font-medium text-gray-800">发起提现</h3>
+                                    <h3 class="text-base font-medium text-gray-800">Initiate Withdrawal</h3>
                                 </div>
                             </div>
 
@@ -1221,6 +1223,7 @@
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:ring-opacity-50 transition-colors"
                                                 placeholder="Enter transaction password"
                                             >
+                                            <p class="mt-1 text-xs text-red-500" x-show="formErrors.transactionPassword" x-text="formErrors.transactionPassword"></p>
                                         </div>
                                     </div>
 
