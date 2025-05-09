@@ -326,7 +326,7 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             Total Assets
-                            <button id="totalAssetsTooltip" class="text-white/80 hover:text-white" data-tippy-content="System estimated current account total balance based on exchange rates in selected currency, for reference only">
+                            <button id="totalAssetsTooltip" class="text-white/80 hover:text-white">
                                 <i class="fas fa-circle-info text-xs"></i>
                             </button>
                         </div>
@@ -531,7 +531,7 @@
                                 <th class="px-5 py-4 text-right text-sm font-medium text-gray-600">
                                     <div class="flex items-center justify-end">
                                         Unavailable Amount
-                                        <button id="unavailableTooltip" class="ml-1 text-gray-400 hover:text-gray-600" data-tippy-content="Unavailable balance refers to amounts that are temporarily unavailable for withdrawal, payment, or exchange. This includes pending amounts, amounts under risk control review, frozen amounts, and rolling guarantees for payment collection">
+                                        <button id="unavailableTooltip" class="ml-1 text-gray-400 hover:text-gray-600">
                                             <i class="fas fa-circle-info text-xs"></i>
                                         </button>
                                     </div>
@@ -2249,7 +2249,12 @@
         // Initialize tooltips
         tippy('#totalAssetsTooltip', {
             content: 'System estimated current account total balance based on exchange rates in selected currency, for reference only',
-            placement: 'top'
+            placement: 'right',
+            theme: 'light',
+            arrow: true,
+            maxWidth: 300,
+            animation: 'scale',
+            duration: 200
         });
 
         tippy('#unavailableTooltip', {
