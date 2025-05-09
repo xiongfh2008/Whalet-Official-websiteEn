@@ -362,41 +362,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
     <script>
-        // 获取IP地址并判断地区
-        async function getIPLocation() {
-            try {
-                // 使用 ipify.org 服务获取IP
-                const ipResponse = await fetch('https://api.ipify.org?format=json');
-                const ipData = await ipResponse.json();
-                console.log('获取到的IP地址:', ipData.ip);
-                
-                // 使用 ip-api.com 服务获取IP地理位置信息
-                const locationResponse = await fetch(`http://ip-api.com/json/${ipData.ip}`);
-                const locationData = await locationResponse.json();
-                console.log('IP地理位置信息:', locationData);
-                
-                // 检查是否是中国IP
-                const isChineseIP = locationData.countryCode === 'CN';
-                console.log('是否中国IP:', isChineseIP);
-                
-                return isChineseIP ? 'zh-CN' : 'en';
-            } catch (error) {
-                console.error('获取IP地址失败:', error);
-                return 'en';
-            }
-        }
-
-        // 更新语言切换按钮
-        function updateLanguageSwitch(lang) {
-            const languageSwitch = document.querySelector('.language-switch');
-            if (languageSwitch) {
-                const currentLanguageSpan = languageSwitch.querySelector('#currentLanguage');
-                if (currentLanguageSpan) {
-                    currentLanguageSpan.textContent = lang === 'zh-CN' ? '简体中文' : 'English';
-                }
-            }
-        }
-
         // 设置语言
         function setLanguage(lang) {
             console.log('开始设置语言:', lang);
@@ -444,7 +409,7 @@
 
         // 获取当前语言
         function getCurrentLanguage() {
-            return localStorage.getItem('language') || 'zh-CN';
+            return 'en';
         }
 
         // 更新页面内容
@@ -478,18 +443,8 @@
             }
         });
 
-        // 语言切换函数
-        function toggleLanguage() {
-            console.log('切换语言按钮被点击');
-            const currentLang = document.documentElement.lang;
-            const newLang = currentLang === 'en' ? 'en' : 'en';
-            console.log('从', currentLang, '切换到', newLang);
-            
-            setLanguage(newLang);
-        }
-
         // 初始化页面语言
-        async function initializeLanguage() {
+        function initializeLanguage() {
             console.log('开始初始化语言...');
             try {
                 // 固定使用英文
@@ -499,10 +454,8 @@
                 // 创建语言切换按钮
                 const languageSwitch = document.createElement('div');
                 languageSwitch.className = 'language-switch';
-                languageSwitch.onclick = toggleLanguage;
                 languageSwitch.innerHTML = `
                     <span id="currentLanguage">English</span>
-                    <i class="fas fa-chevron-down"></i>
                 `;
 
                 // 将语言切换按钮添加到导航栏
