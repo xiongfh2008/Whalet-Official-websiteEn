@@ -801,6 +801,24 @@
             // 初始化语言
             initializeLanguage();
 
+            // 处理侧边栏折叠功能
+            const sidebar = document.getElementById('sidebar');
+            const contentArea = document.getElementById('content-area');
+            const toggleSidebar = document.getElementById('toggle-sidebar');
+            const toggleIcon = document.getElementById('toggle-icon');
+
+            toggleSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+                contentArea.classList.toggle('expanded');
+                
+                // 更新图标方向
+                if (sidebar.classList.contains('collapsed')) {
+                    toggleIcon.classList.replace('fa-chevron-left', 'fa-chevron-right');
+                } else {
+                    toggleIcon.classList.replace('fa-chevron-right', 'fa-chevron-left');
+                }
+            });
+
             // 处理菜单项点击
             document.querySelectorAll('.menu-item').forEach(item => {
                 item.addEventListener('click', function(event) {
