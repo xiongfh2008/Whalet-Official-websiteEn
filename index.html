@@ -131,252 +131,6 @@
             width: 100%;
             height: 100%;
         }
-        /* 活动弹框样式 */
-        #activity-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999; /* 确保在最顶层 */
-        }
-        
-        #activity-modal.hidden {
-            display: none !important;
-        }
-        
-        .activity-container {
-            width: 60%;
-            max-width: 500px;
-            background: linear-gradient(135deg, #f5f3ff, #fff);
-            border-radius: 16px;
-            box-shadow: 0 25px 50px -12px rgba(125, 51, 255, 0.15);
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .activity-header {
-            background: linear-gradient(135deg, #7D33FF, #9355FF);
-            padding: 12px;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        
-        .activity-header::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: white;
-            border-radius: 50% 50% 0 0;
-        }
-        
-        .activity-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .activity-title {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #7D33FF;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-        
-        .activity-description {
-            text-align: center;
-            color: #4b5563;
-            margin-bottom: 15px;
-            line-height: 1.5;
-            font-size: 14px;
-        }
-        
-        .activity-benefit {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px 15px;
-            background-color: #f5f3ff;
-            border-radius: 8px;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(125, 51, 255, 0.05);
-        }
-        
-        .benefit-icon {
-            background-color: #7D33FF;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .benefit-text {
-            font-weight: 500;
-        }
-        
-        .activity-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-            width: 100%;
-        }
-        
-        .activity-btn {
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 14px;
-        }
-        
-        .join-btn {
-            background-color: #7D33FF;
-            color: white;
-            border: none;
-        }
-        
-        .join-btn:hover {
-            background-color: #6929D4;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(125, 51, 255, 0.3);
-        }
-        
-        .close-btn {
-            background-color: transparent;
-            color: #6b7280;
-            border: 1px solid #d1d5db;
-        }
-        
-        .close-btn:hover {
-            background-color: #f5f3ff;
-        }
-        
-        .absolute-close {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            background-color: rgba(125, 51, 255, 0.2);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            z-index: 100;
-            transition: all 0.2s;
-        }
-        
-        .absolute-close:hover {
-            background-color: rgba(125, 51, 255, 0.4);
-            transform: rotate(90deg);
-        }
-        
-        .timer-section {
-            margin: 15px 0;
-            width: 100%;
-            background-color: #f5f3ff;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .timer-title {
-            font-weight: 600;
-            color: #4b5563;
-            margin-bottom: 10px;
-        }
-        
-        .timer-display {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .timer-unit {
-            background-color: #7D33FF;
-            color: white;
-            border-radius: 6px;
-            padding: 8px 12px;
-            min-width: 60px;
-            font-weight: bold;
-            position: relative;
-        }
-        
-        .timer-unit::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12px;
-            color: #4b5563;
-            font-weight: normal;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-        
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .activity-container {
-                width: 95%;
-            }
-            
-            .activity-title {
-                font-size: 24px;
-            }
-            
-            .activity-actions {
-                flex-direction: column;
-            }
-            
-            .activity-btn {
-                width: 100%;
-                margin: 5px 0;
-            }
-        }
-        
-        /* 礼品提示框背景色也调整 */
-        .my-6.p-4.bg-blue-50 {
-            background-color: #f5f3ff !important;
-        }
-        
-        .text-orange-500 {
-            color: #7D33FF !important;
-        }
         /* 在线客服样式 */
         .online-service {
             position: fixed;
@@ -605,38 +359,6 @@
     <main id="content-area">
         <iframe id="content-frame" src="pages/home.html" title="内容" onload="console.log('iframe loaded:', this.src)"></iframe>
     </main>
-    
-    <!-- 活动弹框 -->
-    <div id="activity-modal" class="hidden">
-        <div class="activity-container">
-            <div class="activity-header">
-                <div class="absolute-close" id="activity-close-x">
-                    <i class="fa-solid fa-times"></i>
-                </div>
-            </div>
-            
-            <div class="activity-content">
-                <h2 class="activity-title">用户体验问卷调查</h2>
-                <p class="activity-description">
-                    尊敬的Whalet用户，您好！<br>
-                    我们正在开展用户体验问卷调查，希望了解您的宝贵意见。<br>
-                    参与问卷调查仅需3分钟，您的反馈将帮助我们不断改进产品和服务。
-                </p>
-                
-                <div class="my-6 p-4 bg-blue-50 rounded-lg text-center">
-                    <i class="fa-solid fa-gift text-2xl text-orange-500 mb-2"></i>
-                    <p class="text-gray-700">完成问卷即有机会获得<span class="font-bold text-orange-500">精美礼品一份</span></p>
-                </div>
-                
-                <div class="activity-actions">
-                    <button class="activity-btn join-btn pulse-animation" id="submit-survey-btn">
-                        <i class="fa-solid fa-clipboard-list mr-2"></i>立即参与问卷
-                    </button>
-                    <button class="activity-btn close-btn" id="activity-close-btn">稍后再说</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
     <script>
@@ -756,6 +478,16 @@
             }
         });
 
+        // 语言切换函数
+        function toggleLanguage() {
+            console.log('切换语言按钮被点击');
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'en' ? 'en' : 'en';
+            console.log('从', currentLang, '切换到', newLang);
+            
+            setLanguage(newLang);
+        }
+
         // 初始化页面语言
         async function initializeLanguage() {
             console.log('开始初始化语言...');
@@ -785,16 +517,6 @@
                 console.error('语言初始化失败:', error);
                 setLanguage('en');
             }
-        }
-
-        // 语言切换函数
-        function toggleLanguage() {
-            console.log('切换语言按钮被点击');
-            const currentLang = document.documentElement.lang;
-            const newLang = currentLang === 'en' ? 'en' : 'en';
-            console.log('从', currentLang, '切换到', newLang);
-            
-            setLanguage(newLang);
         }
 
         // 页面加载完成后初始化
