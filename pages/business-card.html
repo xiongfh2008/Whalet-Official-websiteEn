@@ -221,10 +221,10 @@
                         </label>
                         
                         <button id="submit-btn" 
-                            class="px-8 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled>
+                            class="px-8 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                             Apply Now
                         </button>
+                        <div id="error-msg" class="text-red-600 text-sm mt-2" style="display:none;"></div>
                     </div>
                 </div>
                 
@@ -276,19 +276,23 @@
         // 获取复选框和提交按钮元素
         const termsCheckbox = document.getElementById('terms-checkbox');
         const submitBtn = document.getElementById('submit-btn');
-        
-        // 监听复选框变化
-        termsCheckbox.addEventListener('change', function() {
-            submitBtn.disabled = !this.checked;
-        });
+        const errorMsg = document.getElementById('error-msg');
         
         // 监听提交按钮点击
         submitBtn.addEventListener('click', function() {
-            if (termsCheckbox.checked) {
-                // Show application success message
-                alert('Application successful!');
-                // Redirect to card management page
+            if (!termsCheckbox.checked) {
+                errorMsg.textContent = 'Please agree to the Business Card Service Agreement and Privacy Policy before applying.';
+                errorMsg.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'none';
                 window.location.href = 'cards.html';
+            }
+        });
+
+        // 监听复选框变化，勾选后隐藏错误提示
+        termsCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                errorMsg.style.display = 'none';
             }
         });
 
