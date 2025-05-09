@@ -756,29 +756,20 @@
             }
         });
 
-        // 语言切换函数
-        function toggleLanguage() {
-            console.log('切换语言按钮被点击');
-            const currentLang = document.documentElement.lang;
-            const newLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
-            console.log('从', currentLang, '切换到', newLang);
-            
-            setLanguage(newLang);
-        }
-
         // 初始化页面语言
         async function initializeLanguage() {
             console.log('开始初始化语言...');
             try {
-                const detectedLang = await getIPLocation();
-                console.log('IP检测结果语言:', detectedLang);
+                // 固定使用英文
+                const detectedLang = 'en';
+                console.log('设置语言为:', detectedLang);
                 
                 // 创建语言切换按钮
                 const languageSwitch = document.createElement('div');
                 languageSwitch.className = 'language-switch';
                 languageSwitch.onclick = toggleLanguage;
                 languageSwitch.innerHTML = `
-                    <span id="currentLanguage">${detectedLang === 'zh-CN' ? '简体中文' : 'English'}</span>
+                    <span id="currentLanguage">English</span>
                     <i class="fas fa-chevron-down"></i>
                 `;
 
@@ -794,6 +785,16 @@
                 console.error('语言初始化失败:', error);
                 setLanguage('en');
             }
+        }
+
+        // 语言切换函数
+        function toggleLanguage() {
+            console.log('切换语言按钮被点击');
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'en' ? 'en' : 'en';
+            console.log('从', currentLang, '切换到', newLang);
+            
+            setLanguage(newLang);
         }
 
         // 页面加载完成后初始化
