@@ -45,7 +45,7 @@ const translations = {
 
         // 快速导航项
         'platformCollection': '电商平台',
-        'tradeCollection': '外贸收款',
+        'tradeCollection': '跨境B2B',
         'independentSite': '独立站',
         'serviceTrade': '服务贸易',
         'withdrawal': '提现',
@@ -117,7 +117,7 @@ const translations = {
         'menu_platform': '电商平台',
         'menu_independent': '独立站',
         'menu_service_trade': '服务贸易',
-        'menu_trade_collection': '外贸收款',
+        'menu_trade_collection': '跨境B2B',
         'menu_holder': '持有人',
         surveyTitle: '问卷调查',
         surveyDesc: '您的反馈对我们很重要，请花几分钟完成这份问卷',
@@ -170,7 +170,7 @@ const translations = {
 
         // Quick Navigation Items
         'platformCollection': 'E-commerce Platform',
-        'tradeCollection': 'Trade Collection',
+        'tradeCollection': 'Cross-border B2B',
         'independentSite': 'Independent Site',
         'serviceTrade': 'Service Trade',
         'withdrawal': 'Withdrawal',
@@ -242,7 +242,7 @@ const translations = {
         'menu_platform': 'E-commerce Platform',
         'menu_independent': 'Independent Site',
         'menu_service_trade': 'Service Trade',
-        'menu_trade_collection': 'Trade Collection',
+        'menu_trade_collection': 'Cross-border B2B',
         'menu_holder': 'Holder',
         surveyTitle: 'Survey',
         surveyDesc: 'Your feedback is important to us. Please take a few minutes to complete this survey',
