@@ -48,14 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 初始化提示工具
         if (typeof tippy === 'function') {
-            tippy('#totalAssetsTooltip', {
-                placement: 'right',
-                theme: 'light',
-                arrow: true,
-                maxWidth: 300,
-                animation: 'scale',
-                duration: 200
-            });
             tippy('#unavailableTooltip', {
                 placement: 'top',
                 theme: 'light',
